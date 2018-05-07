@@ -7,7 +7,7 @@ agent any
 	    steps{
 		    git url: 'https://github.com/sombilat/JenkinsDemoRepo.git', branch: 'master'
 			echo 'Currently within PROJ-DEV Branch'
-			sh 'mvn clean package'
+			sh 'mvn test'
 			sh 'ls -la'
 			always {
 				sh 'git checkout proj-test'
