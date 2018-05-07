@@ -9,16 +9,15 @@ agent any
 			echo 'Currently within PROJ-DEV Branch'
 			sh 'mvn test'
 			sh 'ls -la'
-			sh 'git checkout test'
+			always {
+				sh 'git checkout test'
+			}
 		}
     }
 
     stage ('test')
 	{
-        steps{
-			when {
-				branch 'test'
-			}
+        steps {
 			sh 'git branch'			
 			echo 'Currently within PROJ-TEST Branch'
 			sh 'mvn clean package'
@@ -32,9 +31,6 @@ agent any
     stage ('prod')
     {
 		steps{
-			when {
-				branch 'prod'
-			}
 			sh 'git branch'			
 			echo 'Currently within PROJ-PROD Branch'
 			sh 'mvn clean package'
