@@ -8,8 +8,6 @@ agent any
 		    git url: 'https://github.com/sombilat/JenkinsDemoRepo.git', branch: 'master'
 			echo 'Currently within PROJ-DEV Branch'
 			sh 'mvn clean package'
-			sh 'mvn test'
-			junit 'target/surefire-reports/*.xml'
 			sh 'ls -la'
 			always {
 				sh 'git checkout proj-test'
@@ -26,8 +24,6 @@ agent any
 			sh 'git branch'			
 			echo 'Currently within PROJ-TEST Branch'
 			sh 'mvn clean package'
-			sh 'mvn test'
-			junit 'target/surefire-reports/*.xml'
 			sh 'ls -la'
 			always {
 				sh 'git checkout proj-prod'
@@ -44,8 +40,6 @@ agent any
 			sh 'git branch'			
 			echo 'Currently within PROJ-PROD Branch'
 			sh 'mvn clean package'
-			sh 'mvn test'
-			junit 'target/surefire-reports/*.xml'
 			sh 'ls -la'
 		}
 		
