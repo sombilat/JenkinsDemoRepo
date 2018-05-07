@@ -9,9 +9,10 @@ agent any
 			echo 'Currently within PROJ-DEV Branch'
 			sh 'mvn test'
 			sh 'ls -la'
-			always {
-				sh 'git checkout test'
-			}
+			sh 'cat src/main/Class/MainClass.java'
+			sh 'javac -d . src/main/Class/MainClass.java'
+			sh 'java main.Class.MainClass'
+			sh 'git checkout test'
 		}
     }
 
@@ -20,11 +21,12 @@ agent any
         steps {
 			sh 'git branch'			
 			echo 'Currently within PROJ-TEST Branch'
-			sh 'mvn clean package'
+			sh 'mvn test'
 			sh 'ls -la'
-			always {
-				sh 'git checkout prod'
-			}
+			sh 'cat src/main/Class/MainClass.java'
+			sh 'javac -d . src/main/Class/MainClass.java'
+			sh 'java main.Class.MainClass'
+			sh 'git checkout prod'
 		}
 	}
 
@@ -33,8 +35,12 @@ agent any
 		steps{
 			sh 'git branch'			
 			echo 'Currently within PROJ-PROD Branch'
-			sh 'mvn clean package'
+			sh 'mvn test'
 			sh 'ls -la'
+			sh 'cat src/main/Class/MainClass.java'
+			sh 'javac -d . src/main/Class/MainClass.java'
+			sh 'java main.Class.MainClass'
+			sh 'cat src/main/Class/MainClass.java'
 		}
 		
     }
