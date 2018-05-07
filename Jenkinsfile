@@ -9,9 +9,7 @@ agent any
 			echo 'Currently within PROJ-DEV Branch'
 			sh 'mvn test'
 			sh 'ls -la'
-			always {
-				sh 'git checkout test'
-			}
+			sh 'git checkout test'
 		}
     }
 
