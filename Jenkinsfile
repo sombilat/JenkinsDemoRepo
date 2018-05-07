@@ -10,7 +10,7 @@ agent any
 			sh 'mvn test'
 			sh 'ls -la'
 			always {
-				sh 'git checkout proj-test'
+				sh 'git checkout test'
 			}
 		}
     }
@@ -19,14 +19,14 @@ agent any
 	{
         steps{
 			when {
-				branch 'proj-test'
+				branch 'test'
 			}
 			sh 'git branch'			
 			echo 'Currently within PROJ-TEST Branch'
 			sh 'mvn clean package'
 			sh 'ls -la'
 			always {
-				sh 'git checkout proj-prod'
+				sh 'git checkout prod'
 			}
 		}
 	}
@@ -35,7 +35,7 @@ agent any
     {
 		steps{
 			when {
-				branch 'proj-prod'
+				branch 'prod'
 			}
 			sh 'git branch'			
 			echo 'Currently within PROJ-PROD Branch'
