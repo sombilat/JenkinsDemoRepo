@@ -2,9 +2,10 @@
 pipeline {
 agent any
   stages{
-	git url: 'https://github.com/sombilat/JenkinsDemoRepo.git', branch: 'master'
+	
     stage ('master')    {
 	    steps{
+	    	git url: 'https://github.com/sombilat/JenkinsDemoRepo.git', branch: 'master'
 			echo 'Currently within PROJ-DEV Branch'
 			sh 'mvn test'
 			sh 'ls -la'
